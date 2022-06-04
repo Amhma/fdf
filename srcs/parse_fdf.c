@@ -6,7 +6,7 @@
 /*   By: amahla <amahla@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 15:25:50 by amahla            #+#    #+#             */
-/*   Updated: 2022/06/04 21:35:13 by amahla           ###   ########.fr       */
+/*   Updated: 2022/06/04 21:59:34 by amahla           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,10 @@ t_point	**parse_fdf(char *arg, int *width_map, int *height_map)
 	y = 0;
 	temp = read_fdf(arg);
 	if (!temp)
+	{
+		ft_putendl_fd("file error : corrupted file", 2);
 		exit(EXIT_FAILURE);
+	}
 	map = ft_split(temp, '\n');
 	free(temp);
 	if (!map)
